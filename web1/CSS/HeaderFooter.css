@@ -1,0 +1,241 @@
+/* Reset and Base Styles */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Animated Header Styles */
+.main-header {
+    border-radius: 10 px 10px white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #100721;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logo-icon {
+    margin-right: 10px;
+    color: #3498db;
+    font-size: 1.8rem;
+}
+.logo-text{
+    color:whitesmoke;
+}
+.logo-icon i img {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px 40px ;
+}
+
+.nav-list {
+    display:flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 5px ;
+}
+.nav-list a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #3498db;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover:after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2c3e50;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 20px;
+}
+
+/* Footer Styles (not fixed) */
+.main-footer {
+    width: 100%;
+    background: #100721;
+    color: #fff;
+    padding: 40px 0 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col h3 {
+    color: #3498db;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #3498db;
+}
+
+.footer-col p, .footer-col li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-col a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-col i {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    margin-left: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 15px;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+    }
+}
+
+
+
+
+/* profile pic css */
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit:fill;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.main-header .user-profile {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 0 15px;
+}
+
+.admin-container .user-profile img {
+    width: 45px;
+    height: 45px;
+}
+#userNameDisplay {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 15px;
+}

@@ -1,0 +1,342 @@
+/* Base Styles */
+:root {
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --border-color: #dfe6e9;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --table-header-bg: linear-gradient(135deg, #3498db, #2c3e50);
+    --table-row-hover: #f8fafc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    padding: 0;
+    margin: 0;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Search Container */
+.search-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-container h2 {
+    width: 100%;
+    color: var(--dark-color);
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.search-container input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.search-container select {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-container select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-container button {
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-container button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.search-container button i {
+    font-size: 0.9rem;
+}
+
+/* Table Container */
+.table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+}
+
+.table-container h1 {
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Data Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    min-width: 1000px; /* Ensures table doesn't get too narrow */
+}
+
+.data-table thead tr {
+    background: var(--table-header-bg);
+    color: white;
+}
+
+.data-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    word-break: break-word;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+/* Status Badge */
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success-color);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+}
+
+.action-btn.edit {
+    background-color: #17a2b8;
+}
+
+.action-btn.delete {
+    background-color: #dc3545;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.action-btn i {
+    font-size: 0.9rem;
+}
+
+/* Price Styling */
+.price-original {
+    text-decoration: line-through;
+    color: #95a5a6;
+    margin-right: 5px;
+}
+
+.price-discounted {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7f8c8d;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #bdc3c7;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container input,
+    .search-container select,
+    .search-container button {
+        width: 100%;
+    }
+    
+    .table-container {
+        padding: 15px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container h2 {
+        font-size: 1.2rem;
+    }
+    
+    .table-container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .action-buttons {
+        justify-content: center;
+    }
+    
+    .action-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-container {
+        padding: 10px;
+    }
+    
+    .search-container,
+    .table-container {
+        padding: 15px 10px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .action-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .status {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-row {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.product-row:nth-child(even) {
+    animation-delay: 0.05s;
+}
+
+.product-row:nth-child(odd) {
+    animation-delay: 0.1s;
+}

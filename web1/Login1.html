@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Crowd Zero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/LoginForm.css">
+</head>
+
+<body>
+    <!-- Login Security Form -->
+    <div class="security-overlay" id="securityOverlay">
+        <div class="security-form">
+            <h2><i class="fas fa-lock"></i> Secure Login</h2>
+
+            <div class="form-columns">
+                <!-- Left Column -->
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Right Column -->
+                <div class="form-group">
+                    <label for="pass"><i class="fas fa-key"></i> Password</label>
+                    <input type="password" id="pass" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <label for="captcha"><i class="fas fa-shield-alt"></i>CAPTCHA Verification---><span
+                            id="captchaQuestion"></span></label>
+                    <input type="text" id="captcha" placeholder="Enter the answer" required>
+                </div>
+
+                <!-- Left Column -->
+                <div class="form-group">
+                    <label for="ad"><i class="fas fa-user-tag"></i> Account Type</label>
+                    <select id="ad" required>
+                        <option value="">Select account type</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                </div>
+                <!-- Full Width Captcha Section -->
+                <!-- <div class="captcha-section"> -->
+                    <!-- Add this after the Account Type select field -->
+                    <div class="form-group">
+                        <label for="humanVerify"><i class="fas fa-user-check"></i> Human Verification</label>
+                        <div class="verification-box">
+                            <!-- <p>Please check this box to verify you're human:</p> -->
+                            <input type="checkbox" id="humanVerify" required>
+                            <label for="humanVerify">I'm not a robot</label>
+                            <div class="verification-success" id="verificationSuccess">
+                                <i class="fas fa-check-circle"></i> Successful verification
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Add privacy policy checkbox -->
+                     <div class="form-group privacy-policy">
+                        <label for="humanVerify"><i class="fas fa-user-check"></i> Privacy check</label>
+                        <div class="verification-box">
+                            <input type="checkbox" id="privacyPolicy" required>
+                            <label for="privacyPolicy">I agree to the <a href="#" id="privacyPolicyLink">Privacy
+                                    Policy</a></label>
+                        </div>
+                    </div>
+                    <!-- Privacy Policy Modal -->
+                    <div id="privacyModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Privacy Policy</h2>
+                            <div class="policy-content">
+                                <p>Here you can add your detailed privacy policy text...</p>
+                            </div>
+                        </div>
+                    </div>
+                <button id="submit-btn" class="submit-btn" onclick="verifyAccess()">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-circle"></i> Verification failed. Please try again.
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="loading">
+                    <i class="fas fa-spinner"></i> Verifying...
+                </div>
+
+                <!-- Links -->
+                <div class="login-links">
+                    <div class="login-link">
+                        <a href="./Main.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                    <div class="login-link">
+                        Don't have an account? <a href="./UserSignup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./Login1.js"></script>
+</body>
+</html>

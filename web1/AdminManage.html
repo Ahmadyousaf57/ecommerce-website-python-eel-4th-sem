@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/AdminManage.css">
+</head>
+<body>
+
+    <div class="search-container">
+        <h2>Search Users</h2>
+        <input type="text" id="userSearchInput" placeholder="Search...">
+        <select id="userSearchCondition">
+            <option value="SIGN_UP_Name">Name</option>
+            <option value="SIGN_UP_Email">Email</option>
+            <option value="SIGN_UP_administration">Role</option>
+            <option value="SIGN_UP_AGE">Age</option>
+        </select>
+        <button onclick="searchUsers()">Search</button>
+    </div>
+    <!-- Replace the existing tables in ViewProduct.html with these -->
+    <div class="container">
+        <h1>Admin Users</h1>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="adminUsersGrid">
+                <!-- Admin users will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h1>Customer Users</h1>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="customerUsersGrid">
+                <!-- Customer users will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Edit User Modal -->
+<div id="editUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+            <input type="hidden" id="editUserId">
+            <div class="form-group">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" required>
+            </div>
+            <div class="form-group">
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="editPassword">Password:</label>
+                <input type="password" id="editPassword">
+            </div>
+            <div class="form-group">
+                <label for="editDOB">Date of Birth:</label>
+                <input type="date" id="editDOB" required>
+            </div>
+            <div class="form-group">
+                <label for="editGender">Gender:</label>
+                <select id="editGender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="editAge">Age:</label>
+                <input type="number" id="editAge" required>
+            </div>
+            <div class="form-group">
+                <label for="editRole">Role:</label>
+                <select id="editRole" required>
+                    <option value="Admin">Admin</option>
+                    <option value="Customer">Customer</option>
+                </select>
+            </div>
+            <button type="button" onclick="submitUserEdit()">Save Changes</button>
+        </form>
+    </div>
+</div>
+ <script type="text/javascript" src="/eel.js"></script>
+    <script src="./AdminManage.js"></script>
+</body>
+
+</html>

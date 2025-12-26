@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products | Crowd Zero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/ViewProduct.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Search Section -->
+        <div class="search-container">
+            <h2>Product Search</h2>
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <select id="searchCondition">
+                <option value="ProductName">Product Name</option>
+                <option value="CategoryName">Category</option>
+                <option value="productColor">Color</option>
+                <option value="Price">Price</option>
+            </select>
+            <button onclick="searchProducts()">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="table-container">
+            <h1>Product Inventory</h1>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Discount</th>
+                        <th>Price</th>
+                        <th>Discounted</th>
+                        <th>Delivery</th>
+                        <th>Returns</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Admin Table -->
+        <div class="table-container">
+            <h1>Admin Panel</h1>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Discount</th>
+                        <th>Price</th>
+                        <th>Discounted</th>
+                        <th>Delivery</th>
+                        <th>Returns</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productsGrid11">
+                    <!-- Products will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./ViewProduct.js"></script>
+    <script src="./AdminTableSearch.js"></script>
+</body>
+</html>

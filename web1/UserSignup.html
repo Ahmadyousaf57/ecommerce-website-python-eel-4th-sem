@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./CSS/Signup.css">
+</head>
+
+<body>
+ 
+    <main>
+        <div class="form-container">
+            <h1>Create Your Account</h1>
+            <form id="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <small>Error message</small>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" placeholder="Enter your age" required min="18" max="120">
+                        <small>Error message</small>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="productImage">ProFile Image</label>
+                        <div class="file-input-wrapper">
+                            <label for="productImage" class="file-input-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Choose ProFile image
+                            </label>
+                            <input type="file" id="profileImage" accept="image/*" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="role">Account Type</label>
+                        <select id="admins+customer" name="role" required>
+                            <option value="" disabled selected>Select account type</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                </div>
+                
+                <button onclick="verifyAccess()" class="submit-btn">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+            <div class="login-links">
+                <div class="login-link">
+                    <a href="./Main.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                </div>
+                <div class="login-link">
+                    Don't have an account? <a href="./Login.html"><i class="fas fa-user-plus"></i>LogIN</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./UserSignup.js"></script>
+</body>
+
+</html>

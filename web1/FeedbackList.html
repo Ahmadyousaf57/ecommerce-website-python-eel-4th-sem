@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback - Crowd Zero Cloth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/FeedbackList.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <!-- Same header as your other pages -->
+    </header>
+
+    <main class="feedback-list-container">
+        <h1>Customer Feedback</h1>
+        <div class="feedback-controls">
+            <button id="refreshBtn" class="refresh-btn">Refresh Data</button>
+        </div>
+        <div class="feedback-table-container">
+            <table id="feedbackTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Rating</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Same footer as your other pages -->
+    </footer>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./FeedbackList.js"></script>
+</body>
+
+</html>

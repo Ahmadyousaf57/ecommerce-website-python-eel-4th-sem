@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order & Cart Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/ViewProduct.css">
+<link rel="stylesheet" href="./CSS/OrderCart.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Order & Cart Management</h1>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('orders')">Orders</div>
+            <div class="tab" onclick="switchTab('carts')">Carts</div>
+        </div>
+        
+        <!-- Orders Tab Content -->
+        <div id="orders-tab" class="tab-content active">
+            <div class="search-container">
+                <h2>Search Orders</h2>
+                <input type="text" id="orderSearchInput" placeholder="Search...">
+                <select id="orderSearchCondition">
+                    <option value="CustomerName">Customer Name</option>
+                    <option value="CustomerEmail">Email</option>
+                    <option value="Status1">Status</option>
+                    <option value="OrderID">Order ID</option>
+                </select>
+                <button onclick="searchOrders()">Search</button>
+            </div>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Payment</th>
+                        <th>Subtotal</th>
+                        <th>Delivery</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersGrid">
+                    <!-- Orders will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Carts Tab Content -->
+        <div id="carts-tab" class="tab-content">
+            <div class="search-container">
+                <h2>Search Carts</h2>
+                <input type="text" id="cartSearchInput" placeholder="Search...">
+                <select id="cartSearchCondition">
+                    <option value="SessionID">Session ID</option>
+                    <option value="ProductID">Product ID</option>
+                </select>
+                <button onclick="searchCarts()">Search</button>
+            </div>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cart ID</th>
+                        <th>Session ID</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="cartsGrid">
+                    <!-- Carts will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./OrderCart.js"></script>
+</body>
+</html>

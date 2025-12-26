@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Crowd Zero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/Adminchat.css">
+    <link rel="stylesheet" href="./CSS/AdminPanel.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="./IMAGES/logo.jpg" alt="Crowd Zero Logo">
+                    <h2>CROWD ZERO</h2>
+                </div>
+                <button class="toggle-sidebar" id="toggleSidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="sidebar-menu">
+                <a href="#" class="menu-item" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="menu-item" data-page="admin-main">
+                    <i class="fas fa-home"></i>
+                    <span>Admin Home</span>
+                </a>
+                <a href="#" class="menu-item" data-page="add-category">
+                    <i class="fas fa-tags"></i>
+                    <span>Add Category</span>
+                </a>
+                <a href="#" class="menu-item" data-page="add-product">
+                    <i class="fas fa-box"></i>
+                    <span>Add Product</span>
+                </a>
+                <a href="#" class="menu-item" data-page="customer-main">
+                    <i class="fas fa-store"></i>
+                    <span>Customer View</span>
+                </a>
+                <a href="#" class="menu-item" data-page="signup">
+                    <i class="fas fa-user-plus"></i>
+                    <span>User Signup</span>
+                </a>
+                <a href="#" class="menu-item" data-page="view-products">
+                    <i class="fas fa-list"></i>
+                    <span>View Products</span>
+                </a>
+                <a href="#" class="menu-item" data-page="admin-manage">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Admin Management</span>
+                </a>
+                <a href="#" class="menu-item" data-page="messages">
+                    <i class="fas fa-envelope"></i>
+                    <span>FeedBack</span>
+                </a>
+                <a href="#" class="menu-item" data-page="showcategory">
+                    <i class="fas fa-tags"></i>
+                    <span>Show Categories</span>
+                </a>
+                <a href="#" class="menu-item" data-page="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <button class="toggle-sidebar" id="mobileToggleSidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <a style="text-decoration: none;" href="./Main.html"><span>Logout</span></a>
+                    </div>
+                    <!-- Replace the current user-profile div with this: -->
+                    <div class="user-profile">
+                        <div id="adminNameDisplay" class="admin-name"></div>
+                        <img id="adminProfilePic" src="./IMAGES/logo.jpg" alt="Admin User"
+                            onerror="this.src='./IMAGES/default-profile.jpg'">
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+            <div class="content">
+                <!-- Welcome Screen (shown by default) -->
+                <div class="welcome-screen" id="welcome-screen">
+                    <h1>Welcome to Admin Panel</h1>
+                    <p>Manage your e-commerce platform efficiently with this comprehensive admin dashboard. Navigate
+                        through different sections using the sidebar menu.</p>
+                    <button class="btn btn-primary" id="show-dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </button>
+                </div>
+
+                <!-- Dashboard Page -->
+                <div class="page" id="dashboard">
+                    <div class="page-header">
+                        <h1 class="page-title">Dashboard Overview</h1>
+                        <div class="page-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add New
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-card-header">
+                                    <span class="stat-card-title">Total Sales</span>
+                                    <div class="stat-card-icon primary">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                                <h3 class="stat-card-value">$24,780</h3>
+                                <span class="stat-card-change positive">
+                                    <i class="fas fa-arrow-up"></i> 12.5% from last month
+                                </span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card-header">
+                                    <span class="stat-card-title">New Orders</span>
+                                    <div class="stat-card-icon success">
+                                        <i class="fas fa-box-open"></i>
+                                    </div>
+                                </div>
+                                <h3 class="stat-card-value">1,245</h3>
+                                <span class="stat-card-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8.3% from last month
+                                </span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card-header">
+                                    <span class="stat-card-title">Products</span>
+                                    <div class="stat-card-icon warning">
+                                        <i class="fas fa-boxes"></i>
+                                    </div>
+                                </div>
+                                <h3 class="stat-card-value">356</h3>
+                                <span class="stat-card-change positive">
+                                    <i class="fas fa-arrow-up"></i> 5.2% from last month
+                                </span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card-header">
+                                    <span class="stat-card-title">Customers</span>
+                                    <div class="stat-card-icon danger">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <h3 class="stat-card-value">8,742</h3>
+                                <span class="stat-card-change negative">
+                                    <i class="fas fa-arrow-down"></i> 2.1% from last month
+                                </span>
+                            </div>
+                        </div>
+                        <p>Welcome to your admin dashboard. This is where you can manage all aspects of your
+                            application.</p>
+                        <p>Click on the sidebar menu items to navigate between different sections.</p>
+                    </div>
+                </div>
+
+                <!-- Admin Main Page -->
+                <div class="page" id="admin-main">
+                    <div class="page-header">
+                        <h1 class="page-title">Admin Home</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="./OrderCart.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Add Category Page -->
+                <div class="page" id="add-category">
+                    <div class="page-header">
+                        <h1 class="page-title">Add Category</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="AddCateGory.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Add Product Page -->
+                <div class="page" id="add-product">
+                    <div class="page-header">
+                        <h1 class="page-title">Add Product</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="AddProduct.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Customer Main Page -->
+                <div class="page" id="customer-main">
+                    <div class="page-header">
+                        <h1 class="page-title">Product View</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="./AdminProductView.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Signup Page -->
+                <div class="page" id="signup">
+                    <div class="page-header">
+                        <h1 class="page-title">User Signup</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="Signup.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- View Products Page -->
+                <div class="page" id="view-products">
+                    <div class="page-header">
+                        <h1 class="page-title">View Products</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="ViewProduct.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Admin Management Page -->
+                <div class="page" id="admin-manage">
+                    <div class="page-header">
+                        <h1 class="page-title">Admin Management</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="AdminManage.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Messages Page -->
+                <div class="page" id="messages">
+                    <div class="page-header">
+                        <h1 class="page-title">FeedBack</h1>
+                    </div>
+                    <div class="page-content">
+                        <p>FeedBackList center. View and respond to customer inquiries.</p>
+                        <iframe src="./FeedbackList.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+                <!-- To this: -->
+                <div class="page" id="showcategory">
+                    <div class="page-header">
+                        <h1 class="page-title">Category Management</h1>
+                    </div>
+                    <div class="page-content">
+                        <iframe src="./showCategory.html" style="width:100%; height:600px; border:none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Chat Icon and Container -->
+    <div class="chat-icon" id="chatIcon">
+        <i class="fas fa-comment-dots"></i>
+        <div class="unread-count" id="unreadCount" style="display: none;">0</div>
+    </div>
+    <div class="chat-container" id="chatContainer" style="display: none;">
+        <div class="chat-sidebar">
+            <div class="chat-header">
+                <h3>Customer Conversations</h3>
+                <button class="close-chat" id="closeChat">&times;</button>
+            </div>
+            <div class="customer-list" id="customerList"></div>
+        </div>
+        <div class="chat-content">
+            <div class="chat-messages" id="chatMessages">
+                <div class="no-conversation" id="noConversation">
+                    Select a customer to start chatting
+                </div>
+            </div>
+            <div class="chat-input-area" id="chatInputArea" style="display: none;">
+                <input type="text" class="chat-input" id="messageInput" placeholder="Type your message...">
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./Adminchat.js"></script>
+    <script src="./AdminPanel.js"></script>
+</body>
+
+</html>

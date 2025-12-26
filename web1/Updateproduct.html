@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/AddProduct.css">
+    <link rel="stylesheet" href="./CSS/HeaderFooter.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="./Main.html">
+                    <span class="logo-icon"><i><img src="./IMAGES/crowd.png" alt="" srcset=""></i></span>
+                    <span class="logo-text">CROWD ZERO</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="./Main.html">HOME</a></li>
+                    <li><a href="./AddCateGory.html">ADDCATEGORY</a></li>
+                    <li><a href="./AddProduct.html">ADDPRODUCT</a></li>
+                    <li><a href="./ViewProduct.html">VIEWPRODUCT</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <h1>U</h1>
+    <h1>s</h1>
+    <div class="form-container">
+        <h2>Update Product</h2>
+        <form onsubmit="updateProductSubmit(); return false;">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <select id="categoryName" required>
+                <option value="">Select Category</option>
+            </select>
+            <input type="file" id="productImage" accept="image/*" required>
+            <input type="text" id="productColor" placeholder="Product Color" required>
+            <input type="number" id="productQuantity" placeholder="Quantity" required>
+            <textarea id="productDescription" placeholder="Description" required></textarea>
+            <input type="text" id="productSize" placeholder="Size" required>
+            <input type="text" id="productDiscount" placeholder="productDiscount" required>
+            <input type="text" id="productPrice" placeholder="productPrice" required>
+            <input type="text" id="productDelveryPrice" placeholder="productDelveryPrice" required>
+            <select id="srd" required>
+                <option value="">Select Return Days</option>
+                <option value="1 Days Return">1 Days Return</option>
+                <option value="2 Days Return">2 Days Return</option>
+                <option value="3 Days Return">3 Days Return</option>
+                <option value="4 Days Return">4 days Return</option>
+                <option value="5 Days Return">5 days Return</option>
+            </select>
+            <input type="submit" value="Update Product">
+            <a href="./Addcategory.html">Addcategory</a><a href="./search.html">Search</a>
+        </form>
+    </div>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We provide innovative solutions to help your business grow in the digital era.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Business St, City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BrandName. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Get product name from URL
+        function getProductNameFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+    </script>
+    <script src="./ViewProduct.js"></script>
+    <script src="./AddProduct.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./Updateproduct.js"></script>
+</body>
+
+</html>

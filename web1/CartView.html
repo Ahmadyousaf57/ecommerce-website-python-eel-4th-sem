@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="./CSS/CartView.css">
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
+        <div class="cart-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">0 RS</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery:</span>
+                <span id="delivery">0 RS</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total:</span>
+                <span id="total">0 RS</span>
+            </div>
+            
+            <button class="checkout-btn" onclick="proceedToCheckout()">PROCEED TO CHECKOUT</button>
+            <button class="continue-btn" onclick="continueShopping()">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./CartView.js"></script>
+</body>
+</html>

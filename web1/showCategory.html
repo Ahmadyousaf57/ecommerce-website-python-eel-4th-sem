@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/Showcategory.css">
+</head>
+<body>
+    <div class="category-management-container">
+        <h2>Category Management</h2>
+        
+        <!-- Add New Category Form -->
+        <div class="add-category-form">
+            <input type="text" id="newCategoryName" placeholder="Enter new category name">
+            <button onclick="addCategory()" class="btn-add">Add Category</button>
+        </div>
+        
+        <!-- Category Table -->
+        <div class="table-responsive">
+            <table id="categoryTable" class="category-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="categoryTableBody">
+                    <!-- Categories will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Edit Category Modal -->
+        <div id="editCategoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEditModal()">&times;</span>
+                <h3>Edit Category</h3>
+                <input type="hidden" id="editCategoryId">
+                <input type="text" id="editCategoryName" placeholder="Category name">
+                <button onclick="updateCategory()" class="btn-update">Update</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./Showcategory.js"></script>
+</body>
+</html>

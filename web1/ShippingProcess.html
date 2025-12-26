@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .confirmation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .order-details, .shipping-details {
+            margin-bottom: 30px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+        }
+        .shipping-progress {
+            margin-top: 30px;
+        }
+        .progress-steps {
+            position: relative;
+            padding-left: 50px;
+        }
+        .step {
+            position: relative;
+            padding-bottom: 30px;
+            transition: all 0.5s ease;
+        }
+        .step:last-child {
+            padding-bottom: 0;
+        }
+        .step-icon {
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: all 0.5s ease;
+        }
+        .step.active .step-icon {
+            background: #4CAF50;
+        }
+        .step.completed .step-icon {
+            background: #4CAF50;
+        }
+        .step.completed .step-title {
+            color: #4CAF50;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            transition: all 0.5s ease;
+        }
+        .step-description {
+            color: #666;
+            font-size: 14px;
+        }
+        .progress-line {
+            position: absolute;
+            left: -25px;
+            top: 30px;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+            z-index: 0;
+        }
+        .progress-line-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 0;
+            background: #4CAF50;
+            transition: height 1s ease;
+        }
+        .map-container {
+            height: 300px;
+            background: #eee;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        .delivery-person {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://cdn-icons-png.flaticon.com/512/2838/2838694.png') no-repeat center center;
+            background-size: contain;
+            z-index: 100;
+            transition: all 1s linear;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="header">
+            <h1>Order Confirmed!</h1>
+            <p>Thank you for your purchase. Your order has been received and is being processed.</p>
+        </div>
+        
+        <div class="order-details">
+            <h2>Order Details</h2>
+            <div class="detail-row">
+                <div class="detail-label">Order ID:</div>
+                <div id="orderId">Loading...</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Order Date:</div>
+                <div id="orderDate">Loading...</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Total Amount:</div>
+                <div id="orderTotal">Loading...</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Payment Method:</div>
+                <div id="paymentMethod">Loading...</div>
+            </div>
+        </div>
+        
+        <div class="shipping-details">
+            <h2>Shipping Details</h2>
+            <div class="detail-row">
+                <div class="detail-label">Name:</div>
+                <div id="shippingName">Loading...</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Address:</div>
+                <div id="shippingAddress">Loading...</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Phone:</div>
+                <div id="shippingPhone">Loading...</div>
+            </div>
+        </div>
+        
+        <div class="shipping-progress">
+            <h2>Shipping Progress</h2>
+            <div class="progress-steps">
+                <div class="progress-line">
+                    <div class="progress-line-fill" id="progressFill"></div>
+                </div>
+                
+                <div class="step" id="step1">
+                    <div class="step-icon">1</div>
+                    <div class="step-title">Order Confirmed</div>
+                    <div class="step-description">We've received your order</div>
+                </div>
+                
+                <div class="step" id="step2">
+                    <div class="step-icon">2</div>
+                    <div class="step-title">Processing</div>
+                    <div class="step-description">Preparing your items</div>
+                </div>
+                
+                <div class="step" id="step3">
+                    <div class="step-icon">3</div>
+                    <div class="step-title">Dispatched</div>
+                    <div class="step-description">Package left our warehouse</div>
+                </div>
+                
+                <div class="step" id="step4">
+                    <div class="step-icon">4</div>
+                    <div class="step-title">On the Way</div>
+                    <div class="step-description">With delivery personnel</div>
+                </div>
+                
+                <div class="step" id="step5">
+                    <div class="step-icon">5</div>
+                    <div class="step-title">Delivered</div>
+                    <div class="step-description">Package delivered</div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="delivery-person" id="deliveryPerson"></div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.location.href='CustomerMain.html'">Continue Shopping</button>
+            <button class="btn btn-secondary" onclick="window.print()">Print Receipt</button>
+        </div>
+    </div>
+
+    <script src="/eel.js"></script>
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        
+        // Initialize map (simplified for example)
+        function initMap() {
+            // This would be replaced with actual map API code
+            console.log("Map would be initialized here");
+            
+            // Simulate delivery person movement
+            const person = document.getElementById('deliveryPerson');
+            person.style.left = '10%';
+            person.style.top = '80%';
+            
+            // Animation would be more sophisticated with real coordinates
+            setTimeout(() => {
+                person.style.left = '30%';
+                person.style.top = '60%';
+            }, 60000);
+            
+            setTimeout(() => {
+                person.style.left = '50%';
+                person.style.top = '40%';
+            }, 120000);
+            
+            setTimeout(() => {
+                person.style.left = '70%';
+                person.style.top = '20%';
+            }, 180000);
+            
+            setTimeout(() => {
+                person.style.left = '90%';
+                person.style.top = '10%';
+            }, 240000);
+        }
+        
+        // Update shipping progress
+        function updateProgress(step) {
+            const steps = document.querySelectorAll('.step');
+            const progressFill = document.getElementById('progressFill');
+            
+            // Reset all steps
+            steps.forEach(s => {
+                s.classList.remove('active', 'completed');
+            });
+            
+            // Mark completed steps
+            for (let i = 0; i < step; i++) {
+                steps[i].classList.add('completed');
+            }
+            
+            // Mark current step as active
+            if (step < steps.length) {
+                steps[step].classList.add('active');
+            }
+            
+            // Update progress line
+            const percentage = (step / (steps.length - 1)) * 100;
+            progressFill.style.height = `${percentage}%`;
+        }
+        
+        // Simulate shipping progress
+        function simulateShipping() {
+            let currentStep = 0;
+            updateProgress(currentStep);
+            
+            // Step 1: Order Confirmed (already done)
+            eel.update_shipping_status(orderId, 'Order Confirmed', 'Warehouse');
+            
+            // Step 2: Processing (after 1 minute)
+            setTimeout(() => {
+                currentStep = 1;
+                updateProgress(currentStep);
+                eel.update_shipping_status(orderId, 'Processing', 'Warehouse');
+            }, 60000);
+            
+            // Step 3: Dispatched (after 2 minutes)
+            setTimeout(() => {
+                currentStep = 2;
+                updateProgress(currentStep);
+                eel.update_shipping_status(orderId, 'Dispatched', 'On Route to Local Hub');
+            }, 120000);
+            
+            // Step 4: On the Way (after 3 minutes)
+            setTimeout(() => {
+                currentStep = 3;
+                updateProgress(currentStep);
+                eel.update_shipping_status(orderId, 'On the Way', 'Near Your Location');
+            }, 180000);
+            
+            // Step 5: Delivered (after 4 minutes)
+            setTimeout(() => {
+                currentStep = 4;
+                updateProgress(currentStep);
+                eel.update_shipping_status(orderId, 'Delivered', 'Your Address');
+            }, 240000);
+        }
+        
+        // Load order details
+        async function loadOrderDetails() {
+            if (!orderId) {
+                alert('No order ID found');
+                window.location.href = 'CustomerMain.html';
+                return;
+            }
+            
+            try {
+                // Get order details from backend
+                const order = await eel.get_order_details111(orderId)();
+                
+                if (order) {
+                    document.getElementById('orderId').textContent = orderId;
+                    document.getElementById('orderDate').textContent = new Date().toLocaleString();
+                    document.getElementById('orderTotal').textContent = `${order.total} RS`;
+                    document.getElementById('paymentMethod').textContent = order.payment;
+                    
+                    document.getElementById('shippingName').textContent = order.name;
+                    document.getElementById('shippingPhone').textContent = order.phone;
+                    document.getElementById('shippingAddress').textContent = 
+                        `${order.address}, ${order.city}, ${order.province}, ${order.country}`;
+                    
+                    // Create initial shipping record
+                    await eel.create_shipping_record(orderId);
+                    
+                    // Start shipping simulation
+                    simulateShipping();
+                    
+                    // Initialize map
+                    initMap();
+                } else {
+                    alert('Order not found');
+                    window.location.href = 'CustomerMain.html';
+                }
+            } catch (error) {
+                console.error('Error loading order details:', error);
+                alert('Error loading order details');
+                window.location.href = 'CustomerMain.html';
+            }
+        }
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrderDetails();
+        });
+    </script>
+</body>
+</html>

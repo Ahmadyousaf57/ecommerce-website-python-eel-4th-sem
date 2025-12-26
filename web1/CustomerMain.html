@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/HeaderFooter.css">
+    <link rel="stylesheet" href="./CSS/CardSearch.css">
+    <link rel="stylesheet" href="./CSS/DisplayProduct.css">
+    <link rel="stylesheet" href="./CSS/Modal.css">
+    <link rel="stylesheet" href="./CSS/AddToCart.css">
+    <link rel="stylesheet" href="./CSS/Customerchat.css">
+</head>
+
+<body>
+    <!-- Modify the header section to include profile picture -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="./Main.html">
+                    <span class="logo-icon"><i><img src="./IMAGES/crowd.png" alt="" srcset=""></i></span>
+                    <span class="logo-text">ONLINE SHOP</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="./CustomerMain.html">HOME</a></li>
+                    <li><a href="./Login.html" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="./UserSignup.html" title="Sign Up"><i class="fas fa-user-plus"></i></a></li>
+                <li><a href="#" id="logoutLink" title="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
+            </nav>
+            <!-- Change this in your CustomerMain.html -->
+            <div class="user-profile">
+                <img id="userProfilePic" src="./IMAGES/download.png" alt="User Profile"
+                    onerror="this.src='./IMAGES/default-profile.jpg'">
+                <span id="userNameDisplay"></span>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <h1 style="color: #ffffff;">------</h1>
+    <h1 style="color: #ffffff;">------</h1>
+    <h1 style="color:black;text-align:center">WELLCOME TO SHOP</h1>
+    <div class="search-container">
+        <h2>Search Products</h2>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <select id="searchCondition">
+            <option value="ProductName">Product Name</option>
+            <option value="CategoryName">Category</option>
+            <option value="productColor">Color</option>
+            <option value="Price">Price</option>
+        </select>
+        <button onclick="searchProducts()">Search</button>
+    </div>
+    <div class="container">
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+    <div class="container">
+        <!-- <h1>PRODUCTS</h1> -->
+        <div class="products-grid" id="productsGrid11"></div>
+    </div>
+    <div id="productDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Product Details</h2>
+            <div id="productDetailsContent"></div>
+        </div>
+    </div>
+    <!-- Messages -->
+    <div class="chat-icon" id="chatIcon">
+        <i class="fas fa-comment-dots"></i>
+        <div class="unread-count" id="unreadCount" style="display: none;">0</div>
+    </div>
+
+    <!-- Replace your current chat-container div with this: -->
+    <div class="chat-container" id="chatContainer" style="display: none;">
+        <div class="chat-header">
+            <h3>Chat with Admin</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <!-- Add admin selection dropdown -->
+        <div class="admin-selection" id="adminSelection">
+            <select id="adminDropdown">
+                <option value="">Select an admin</option>
+            </select>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="messageInput" placeholder="Type your message..." disabled>
+            <button class="send-btn" id="sendBtn" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Regular Footer (not fixed) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We provide innovative solutions to help your business grow in the digital era.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Business St, City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BrandName. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./Customerchat.js"></script>
+    <script src="./CardSearch.js"></script>
+    <script src="./Displayproduct.js"></script>
+    <script src="./AddTOCart.js"></script>
+    <script src="./CustomerMainProfile.js"></script>
+</body>
+
+</html>

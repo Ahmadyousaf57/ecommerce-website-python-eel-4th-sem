@@ -1,0 +1,94 @@
+/* CSS/FeedbackList.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.feedback-list-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.feedback-list-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feedback-controls {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.refresh-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.refresh-btn:hover {
+    background-color: #2980b9;
+}
+
+.feedback-table-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+#feedbackTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#feedbackTable th,
+#feedbackTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#feedbackTable th {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+#feedbackTable tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#feedbackTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.star-rating {
+    color: #f8d64e;
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #feedbackTable {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .feedback-controls {
+        text-align: center;
+    }
+}
